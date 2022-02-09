@@ -3,7 +3,6 @@ package com.fun.data;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MetadataHandler {
@@ -25,7 +24,7 @@ public class MetadataHandler {
             preparedStatement.executeUpdate();
         }
         catch (SQLException se) {
-            logger.log(Level.SEVERE, "we have an exception connecting to the database: " + se);
+            logger.severe("We have an exception connecting to the database: " + se);
         }
     }
 }

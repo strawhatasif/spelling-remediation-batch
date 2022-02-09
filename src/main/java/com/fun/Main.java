@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Properties;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
@@ -40,7 +39,7 @@ public class Main {
             preparedStatement.executeUpdate();
         }
         catch (SQLException se) {
-            logger.log(Level.SEVERE, "we have an exception connecting to the database: " + se);
+            logger.severe("We have an exception connecting to the database: " + se);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.fun.itemwriter;
 
+import com.fun.data.DataSourcePreparer;
 import com.fun.model.SettledAccount;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
@@ -30,7 +31,7 @@ public class JdbcWriter implements ItemWriter {
         if (ObjectUtils.isEmpty(ec))  ec = new ExecutionContext();
 
         writer = new JdbcBatchItemWriter<>();
-        writer.setDataSource(setDataSource());
+        writer.setDataSource(DataSourcePreparer.setDataSource(false));
         writer.setSql(sqlStatement);
         writer.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
         writer.setAssertUpdates(false);
@@ -55,12 +56,5 @@ public class JdbcWriter implements ItemWriter {
     @Override
     public Serializable checkpointInfo() throws Exception {
         return ec;
-    }
-
-    protected SQLiteDataSource setDataSource() {
-        var dataSource = new SQLiteDataSource();
-        dataSource.setUrl("jdbc:sqlite:batch.db");
-
-        return dataSource;
     }
 }

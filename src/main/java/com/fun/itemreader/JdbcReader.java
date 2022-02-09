@@ -1,5 +1,6 @@
 package com.fun.itemreader;
 
+import com.fun.data.DataSourcePreparer;
 import com.fun.mapper.CorrectSpellingRowMapper;
 import com.fun.model.SettledAccount;
 import org.springframework.batch.item.ExecutionContext;
@@ -29,7 +30,7 @@ public class JdbcReader implements ItemReader {
 
         reader = new JdbcCursorItemReader<>();
         reader.setRowMapper(new CorrectSpellingRowMapper());
-        reader.setDataSource(setDataSource());
+        reader.setDataSource(DataSourcePreparer.setDataSource(true));
         reader.setSql(sqlStatement);
         reader.afterPropertiesSet();
         reader.open(ec);
@@ -48,12 +49,5 @@ public class JdbcReader implements ItemReader {
     @Override
     public Serializable checkpointInfo() throws Exception {
         return ec;
-    }
-
-    protected SQLiteDataSource setDataSource() {
-        var dataSource = new SQLiteDataSource();
-        dataSource.setUrl("jdbc:sqlite:batch.db?journal_mode=WAL");
-
-        return dataSource;
     }
 }

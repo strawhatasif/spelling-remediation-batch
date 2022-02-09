@@ -2,9 +2,7 @@ package com.fun.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataHandler {
@@ -24,7 +22,7 @@ public class DataHandler {
             statement.execute("DELETE FROM ACCOUNT");
         }
         catch (SQLException se) {
-            logger.log(Level.SEVERE, "we have an exception connecting to the database: " + se);
+            logger.severe("We have an exception connecting to the database: " + se);
         }
     }
 
@@ -48,7 +46,7 @@ public class DataHandler {
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (10,'Chloe Jackson','Platinum credit card','frequent traveler','SETTTLED');");
         }
         catch (SQLException se) {
-            logger.log(Level.SEVERE, "we have an exception connecting to the database: " + se);
+            logger.severe("We have an exception connecting to the database: " + se);
         }
     }
 
