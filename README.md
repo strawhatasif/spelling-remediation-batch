@@ -4,6 +4,7 @@
 * I also prepared this presentation for the San Antonio Java Users Group in 2020 - https://www.slideshare.net/secret/sDOQuVlBZWyRrB
 
 ## Structure of job
+* `dataCorrectionBatch.xml` _src/resources/META-INF/batch-jobs_ contains the job definition. There is only **one step**.
 * In `CustomJobListener`, a `DataHandler` is responsible for deleting data from the database tables and then inserting data.
 * The `BATCH_JOB` table stores _metadata_ about each job execution. `ACCOUNT` is the main database table containing customer records.
 * The `JdbcReader` queries from `ACCOUNT`. `CorrectStatusTypoProcessor` handles updating the status. Finally, `JdbcWriter` updates the remediated record.
