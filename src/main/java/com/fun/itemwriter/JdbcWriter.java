@@ -6,7 +6,6 @@ import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.util.ObjectUtils;
-import org.sqlite.SQLiteDataSource;
 
 import javax.batch.api.BatchProperty;
 import javax.batch.api.chunk.ItemWriter;
@@ -47,7 +46,7 @@ public class JdbcWriter implements ItemWriter {
     public void writeItems(List<Object> items) throws Exception {
         var settledAccounts =
                 items.stream()
-                        .map(settledAccount -> (SettledAccount) settledAccount)
+                        .map(SettledAccount.class::cast)
                         .collect(Collectors.toList());
 
         writer.write(settledAccounts);

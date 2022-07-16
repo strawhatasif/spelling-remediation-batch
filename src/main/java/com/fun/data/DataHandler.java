@@ -37,7 +37,7 @@ public class DataHandler {
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (1,'John Doe','Platinum credit card','high roller - likes to go to vegas','SETTTLED');");
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (2,'Rachel Sauce','Regular checking account','very angry on last call','SETTTLED');");
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (3,'Billy Red','Special combined credit card','VIP customer','SETTTLED');");
-            statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (4,'Isabel Bella','Regular checking account','does not like being called izzy','SETTTLED');");
+            statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (4,'Isabel Bella','Regular checking account','does not like being called Izzy!','SETTTLED');");
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (5,'Rebecca Jones','VIP credit card','insider flag - is an Executive','SETTTLED');");
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (6,'Jessica Carson','Student checking account','attends college','SETTTLED');");
             statement.execute("INSERT INTO ACCOUNT (ID, NAME, PRODUCT, NOTES, STATUS) VALUES (7,'Sam Kennison','Original checking account','customer since 1997','SETTTLED');");

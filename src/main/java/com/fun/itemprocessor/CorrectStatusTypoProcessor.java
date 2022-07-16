@@ -11,19 +11,18 @@ public class CorrectStatusTypoProcessor implements ItemProcessor {
 
     @Override
     public Object processItem(Object item) throws Exception {
-        var settledAccount = (SettledAccount) item;
-        var correctedStatusAccount = new SettledAccount();
+        if (item instanceof SettledAccount settledAccount) {
 
-       logger.info("ACCOUNT WITH A TYPO IN STATUS? "
-                + settledAccount.getName() + " " + settledAccount.getStatus());
+            logger.warning("ACCOUNT WITH A TYPO IN STATUS? "
+                    + settledAccount.name() + " " + settledAccount.status());
 
-        return correctedStatusAccount
-                .toBuilder()
-                .id(settledAccount.getId())
-                .name(settledAccount.getName())
-                .product(settledAccount.getProduct())
-                .notes(settledAccount.getNotes())
-                .status(CORRECTED_STATUS)
-                .build();
+            return new SettledAccount(settledAccount.id(),
+                    settledAccount.name(),
+                    settledAccount.product(),
+                    settledAccount.notes(),
+                    CORRECTED_STATUS);
+        }
+
+        return null;
     }
 }

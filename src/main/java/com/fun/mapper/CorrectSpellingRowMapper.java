@@ -10,12 +10,10 @@ public class CorrectSpellingRowMapper implements RowMapper<SettledAccount> {
 
     @Override
     public SettledAccount mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return new SettledAccount().toBuilder()
-                .id(rs.getString("ID"))
-                .name(rs.getString("NAME"))
-                .product(rs.getString("PRODUCT"))
-                .notes(rs.getString("NOTES"))
-                .status(rs.getString("STATUS"))
-                .build();
+        return new SettledAccount(rs.getString("ID"),
+                rs.getString("NAME"),
+                rs.getString("PRODUCT"),
+                rs.getString("NOTES"),
+                rs.getString("STATUS"));
     }
 }

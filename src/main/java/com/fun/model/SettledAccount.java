@@ -1,26 +1,15 @@
 package com.fun.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@SuperBuilder(toBuilder = true)
-public class SettledAccount extends Account {
+public record SettledAccount(String id, String name, String product, String notes, String status) {
     private final static String DELIMITER = ",";
-    private String status;
-
     @Override
     public String toString() {
         return new StringBuilder()
-                .append(super.getId()).append(DELIMITER)
-                .append(super.getName()).append(DELIMITER)
-                .append(super.getProduct()).append(DELIMITER)
-                .append(super.getNotes()).append(DELIMITER)
-                .append(this.getStatus())
+                .append(this.id()).append(DELIMITER)
+                .append(this.name()).append(DELIMITER)
+                .append(this.product()).append(DELIMITER)
+                .append(this.notes()).append(DELIMITER)
+                .append(this.status())
                 .toString();
     }
 }

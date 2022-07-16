@@ -13,12 +13,12 @@ public class CustomJobListener implements JobListener {
     public void beforeJob() throws Exception {
         DataHandler.deleteData();
         DataHandler.insertData();
-        logger.info("Beginning job execution.");
+        logger.warning("Beginning job execution.");
     }
 
     @Override
     public void afterJob() throws Exception {
         MetadataHandler.updateStatus();
-        logger.info("Job execution complete!");
+        logger.warning("Job execution complete!");
     }
 }

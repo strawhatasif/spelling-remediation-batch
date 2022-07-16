@@ -6,7 +6,6 @@ import com.fun.model.SettledAccount;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.util.ObjectUtils;
-import org.sqlite.SQLiteDataSource;
 
 import javax.batch.api.BatchProperty;
 import javax.batch.api.chunk.ItemReader;

@@ -8,11 +8,11 @@ public class CustomStepListener implements StepListener {
 
     @Override
     public void beforeStep() throws Exception {
-        logger.info("Beginning step!");
+        logger.warning("Beginning step!");
     }
 
     @Override
     public void afterStep() throws Exception {
-        logger.info("Step complete!");
+        logger.warning("Step complete!");
     }
 }
